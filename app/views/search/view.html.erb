@@ -3,7 +3,7 @@ Search results for <%= @summoner_name %>
 <div>
   <% @matches.each_with_index do |match, index| %>
     <div>
-      Match #<%= index %>: <%= match[:champion_name] %>
+      Match #<%= index + 1 %>: <%= match[:champion_name] %>
     </div>
     <% match[:comparisons].each do |comparison| %>
       <div>
