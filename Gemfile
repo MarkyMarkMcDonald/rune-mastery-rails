@@ -13,6 +13,11 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'rest-client'
 gem 'json'
 gem 'nokogiri'
+gem 'haml-rails'
+
+gem 'normalize-rails'
+gem 'neat'
+gem 'bourbon'
 
 gem 'pry', group: :development
 gem 'dotenv', :groups => [:development, :test]
@@ -31,4 +36,3 @@ gem 'webmock', :groups => :test
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-

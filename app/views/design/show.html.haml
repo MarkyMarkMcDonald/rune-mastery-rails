@@ -1,0 +1,134 @@
+.container
+  %h1 Lasagna
+  %h2 Match 1
+  %section.difference
+    %h3 Difference
+    .quints-summary
+      - @difference[:quints].each do |quint|
+        %ul.summary-list
+          %li.quints
+            %span
+              = quint.count
+            %span
+              = quint.name
+    .marks-summary
+      - @difference[:marks].each do |mark|
+        %ul.summary-list
+          %li.marks
+            %span
+              = mark.count
+            %span
+              = mark.name
+    .seals-summary
+      - @difference[:seals].each do |seal|
+        %ul.summary-list
+          %li.seals
+            %span
+              = seal.count
+            %span
+              = seal.name
+    .glyphs-summary
+    - @difference[:glyphs].each do |glyph|
+      %ul.summary-list
+        %li.glyphs
+          %span
+            = glyph.count
+          %span
+            = glyph.name
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  %section.user-runes
+    %h3 Your stuff
+    %ul.simple-list
+      - @user_runes[:quints].each do |quint|
+        %li.quints
+          %span
+            = quint.count
+          %span
+            = quint.name
+      - @user_runes[:marks].each do |mark|
+        %li.marks
+          %span
+            = mark.count
+          %span
+            = mark.name
+      - @user_runes[:seals].each do |seal|
+        %li.seals
+          %span
+            = seal.count
+          %span
+            = seal.name
+      - @user_runes[:glyphs].each do |glyph|
+        %li.glyphs
+          %span
+            = glyph.count
+          %span
+            = glyph.name
+
+
+  %section.pro-runes
+    %h3 Their stuff
+    %ul.simple-list
+      - @pro_runes[:quints].each do |quint|
+        %li.quints
+          %span
+            = quint.count
+          %span
+            = quint.name
+      - @pro_runes[:marks].each do |mark|
+        %li.marks
+          %span
+            = mark.count
+          %span
+            = mark.name
+      - @pro_runes[:seals].each do |seal|
+        %li.seals
+          %span
+            = seal.count
+          %span
+            = seal.name
+      - @pro_runes[:glyphs].each do |glyph|
+        %li.glyphs
+          %span
+            = glyph.count
+          %span
+            = glyph.name

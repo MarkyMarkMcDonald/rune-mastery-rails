@@ -1,0 +1,70 @@
+//= require normalize-rails
+
+body
+  -webkit-font-smoothing: antialiased
+  background-color: #f8f8f8
+  color: #333
+
+@import "bourbon"
+@import "neat"
+
+.container
+  +outer-container
+
+.difference
+  +span-columns(12)
+
+.simple-list
+  margin: 0
+  padding: 0
+  list-style: none
+  border: 1px solid #e3e3e3
+  background-color: white
+  li
+    color: #333
+    padding: 15px
+    border-bottom: 1px solid rgba(0,0,0,.2)
+  .quints
+    box-shadow: 3px 0 0 #9b59b6 inset
+
+  .marks
+    box-shadow: 3px 0 0 #e74c3c inset
+
+  .seals
+    box-shadow: 3px 0 0 #3498db inset
+
+  .glyphs
+    box-shadow: 3px 0 0 #f1c40f inset
+
+.summary-list
+  list-style: none
+  margin: 0
+  padding: 0
+  li
+    padding: 15px
+  .quints, .marks, .seals, .glyphs
+    background-color: transparent
+
+.user-runes, .pro-runes
+  +span-columns(6)
+
+.quints-summary, .marks-summary, .seals-summary, .glyphs-summary
+  +span-columns(3)
+  border: 1px solid #e3e3e3
+  border-bottom-width: 0
+  border-bottom-style: solid
+  color: #333
+  min-height: 200px
+  background-color: white
+
+.quints-summary
+  box-shadow: 0 -3px 0 #9b59b6 inset
+
+.marks-summary
+  box-shadow: 0 -3px 0 #e74c3c inset
+
+.seals-summary
+  box-shadow: 0 -3px 0 #3498db inset
+
+.glyphs-summary
+  box-shadow: 0 -3px 0 #f1c40f inset
