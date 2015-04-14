@@ -1,6 +1,6 @@
 class RuneComparator
 
-  def self.compare(pro_runes:, player_runes:)
+  def self.compare(pro_runes: pro_runes, player_runes: player_runes)
     comparison = []
     pro_runes.each do |key, value|
       comparison.push(key) if value == player_runes[key]
@@ -8,7 +8,7 @@ class RuneComparator
     comparison
   end
 
-  def self.contrast(pro_runes:, player_runes:)
+  def self.contrast(pro_runes: pro_runes, player_runes: player_runes)
     contrast = {}
     pro_runes.each do |key, value|
       player_value = player_runes[key] || 0
