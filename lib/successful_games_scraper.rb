@@ -4,10 +4,11 @@ require 'uri'
 
 class SuccessfulGamesScraper
   def games(champion_name)
-    @champions ||= {}
-    return @champions[champion_name] if @champions[champion_name]
+    @@champions ||= {}
+    return @@champions[champion_name] if @@champions[champion_name]
+    puts "Adding #{champion_name} to cache"
 
-    @champions[champion_name] = best_game_links(champion_name).map do |link|
+    @@champions[champion_name] = best_game_links(champion_name).map do |link|
           begin
             game_info = Nokogiri::HTML(RestClient.get(link))
 

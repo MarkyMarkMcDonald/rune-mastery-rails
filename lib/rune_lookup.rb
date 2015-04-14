@@ -6,6 +6,9 @@ class RuneLookup
   Rune = Struct.new(:id, :name, :type)
 
   def self.by_id(id)
+    @@runes ||= {}
+    return @@runes[id] if @@runes[id]
+
     api_key = ENV['LOL_API_KEY']
     region = 'na'
     base_url = 'https://na.api.pvp.net'
@@ -14,6 +17,6 @@ class RuneLookup
     rune_info_response = RestClient.get(rune_info_endpoint)
     rune_info = JSON.parse(rune_info_response)
 
-    return Rune.new(id.to_i, rune_info['name'], rune_info['rune']['type'])
+    @@runes[id] = Rune.new(id.to_i, rune_info['name'], rune_info['rune']['type'])
   end
 end
