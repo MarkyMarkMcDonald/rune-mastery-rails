@@ -1,4 +1,4 @@
-class DesignController< ApplicationController
+class DesignController < ApplicationController
 
   Rune = Struct.new(:name, :count)
 

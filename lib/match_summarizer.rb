@@ -1,3 +1,4 @@
+require 'lol_api_config.rb'
 require 'successful_games_scraper.rb'
 require 'rune_comparator.rb'
 require 'champion_fetcher.rb'
@@ -9,21 +10,12 @@ class MatchSummarizer
     champion = ChampionFetcher.new.fetch(champion_id)
     champion_name = champion['name']
 
-    puts "You played #{champion_name}."
-
-    puts 'Fetching your rune selection...'
     player_runes = match['participants'].first['runes'].map do |rune|
       {
         rune['runeId'].to_s => rune['rank']
       }
     end.reduce(&:merge)
 
-    puts 'Your rune selection'
-    player_runes.each do |rune_id, count|
-      puts "#{RuneLookup.by_id(rune_id).name}: #{count}"
-    end
-
-    puts 'Fetching multiple pro rune selections...'
     pro_games = games_scraper.games(champion_name)
 
     comparisons = pro_games.map do |pro_game|
@@ -43,22 +35,13 @@ class MatchSummarizer
       }
     end
 
-    comparisons.each.with_index do |summary, summary_index|
-      puts '-'*80
-      puts "Pro ##{summary_index + 1} - #{summary[:pro_name]}"
-
-      puts 'Differing rune choices'
-      summary[:contrast].each do |contrast|
-        puts "#{contrast[:difference]}:  #{contrast[:rune].name}"
-      end
-    end
-
     {
       comparisons: comparisons,
       champion_name: champion_name,
     }
   end
 
+  private
   def games_scraper
     @games_scraper ||= SuccessfulGamesScraper.new
   end

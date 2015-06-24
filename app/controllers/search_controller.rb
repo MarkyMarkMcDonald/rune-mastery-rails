@@ -1,8 +1,6 @@
 require 'match_history_fetcher'
 require 'match_summarizer'
 
-
-
 class SearchController < ApplicationController
 
   def view
