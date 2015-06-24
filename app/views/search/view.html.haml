@@ -21,7 +21,7 @@
                     %span
                       = quint[:difference] > 0 ? '+' + quint[:difference].to_s : quint[:difference]
                     %span
-                      = quint[:rune].name
+                      = quint[:rune].name.gsub(/Greater.*of/, '')
             .marks-summary
               - comparison[:contrast].select do |contrast| contrast[:rune].type == 'red' end.sort_by do |contrast| contrast[:difference] end.reverse.each do |mark|
                 %ul.summary-list
@@ -29,7 +29,7 @@
                     %span
                       = mark[:difference] > 0 ? '+' + mark[:difference].to_s : mark[:difference]
                     %span
-                      = mark[:rune].name
+                      = mark[:rune].name.gsub(/Greater.*of/, '')
             .seals-summary
               - comparison[:contrast].select do |contrast| contrast[:rune].type == 'blue' end.sort_by do |contrast| contrast[:difference] end.reverse.each do |seal|
                 %ul.summary-list
@@ -37,7 +37,7 @@
                     %span
                       = seal[:difference] > 0 ? '+' + seal[:difference].to_s : seal[:difference]
                     %span
-                      = seal[:rune].name
+                      = seal[:rune].name.gsub(/Greater.*of/, '')
             .glyphs-summary
               - comparison[:contrast].select do |contrast| contrast[:rune].type == 'blue' end.sort_by do |contrast| contrast[:difference] end.reverse.each do |glyph|
                 %ul.summary-list
@@ -45,4 +45,4 @@
                     %span
                       = glyph[:difference] > 0 ? '+' + glyph[:difference].to_s : glyph[:difference]
                     %span
-                      = glyph[:rune].name
+                      = glyph[:rune].name.gsub(/Greater.*of/, '')
