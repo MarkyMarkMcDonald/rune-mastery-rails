@@ -15,6 +15,7 @@ gem 'json'
 gem 'nokogiri'
 gem 'haml-rails'
 
+gem 'jquery-turbolinks'
 gem 'normalize-rails'
 gem 'neat'
 gem 'bourbon'
