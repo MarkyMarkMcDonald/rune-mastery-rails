@@ -22,6 +22,8 @@ gem 'normalize-rails'
 gem 'neat'
 gem 'bourbon'
 
+gem 'rails_12factor'
+
 gem 'pry', group: :development
 gem 'dotenv', :groups => [:development, :test]
 gem 'rspec-rails', :groups => [:development, :test]
