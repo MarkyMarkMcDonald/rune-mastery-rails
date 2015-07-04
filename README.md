@@ -14,5 +14,6 @@ ruby rune_comparison.rb
 - [X] Include 'type' of rune as first class field (Quint, Mark, Glyph, Seal), ~~and bucket comparisons this way~~
 - [X] Cache SuccessfulGamesScraper (By Champion)
 - [X] Cache static api calls (Champion & Rune lookup)
-- [ ] Just display rune type in list (`Greater Glyph of Magic Resist` vs `Magic Resist`)
+- [X] Just display rune type in list (`Greater Glyph of Magic Resist` vs `Magic Resist`)
+- [ ] Add "Least common" runes. If 4/6 pros don't use Magic Pen Quints for Anivia, show that. But not 2/6?
 - [ ] Use a real cache instead of storing in memory

@@ -11,9 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20150704201400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "pro_games", force: true do |t|
+    t.string   "champion_name"
+    t.string   "player_name"
+    t.json     "runes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
