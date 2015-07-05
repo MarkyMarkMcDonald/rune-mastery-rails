@@ -1,7 +1,7 @@
 <%= form_tag '/search', method: 'get' do %>
 
   <%= label_tag(:summoner_name, 'Summoner Name')  %>
-  <%= text_field_tag(:summoner_name, nil) %>
+  <%= text_field_tag(:summoner_name, nil, placeholder: 'Marksalulz') %>
   <select name="region">
     <option selected value="na">NA</option>
     <option value="euw">EUW</option>
