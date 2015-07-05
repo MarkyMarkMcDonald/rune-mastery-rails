@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 ruby '2.2.0'
 
+gem 'puma'
+
 gem 'rails', '4.1.6'
 gem 'pg'
 gem 'turbolinks'
