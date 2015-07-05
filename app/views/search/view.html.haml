@@ -1,11 +1,6 @@
-:javascript
-  $(function() {
-    $('.container').on('click', '.collapsible', function(e){
-      $(e.target).closest('.collapsible').toggleClass('collapsed')
-    });
-  });
 
 .container
+  = render 'search/search'
   %h1 Summoner #{@summoner_name}
   %div
     - @matches.each_with_index do |match, match_index|
@@ -47,3 +42,10 @@
                         = glyph[:difference] > 0 ? '+' + glyph[:difference].to_s : glyph[:difference]
                       %span
                         = glyph[:rune].name.gsub(/Greater.*of/, '')
+
+:javascript
+  $(function() {
+    $('.container').on('click', '.collapsible', function(e){
+      $(e.target).closest('.collapsible').toggleClass('collapsed')
+    });
+  });

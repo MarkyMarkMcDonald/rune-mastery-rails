@@ -1,11 +1,4 @@
-Compare your rune choices to the pros.
-
-<%= form_tag '/search', method: 'get' do %>
-
-  <%= label_tag(:summoner_name, 'Summoner Name')  %>
-  <%= text_field_tag(:summoner_name, nil) %>
-
-  <div>
-    <%= submit_tag 'Search' %>
-  </div>
-<% end %>
+<div id="call-to-action">
+  <h2>Compare your rune choices to the pros.</h2>
+  <%= render 'search/search' %>
+</div>
