@@ -6,7 +6,7 @@ class SearchController < ApplicationController
   def view
     @summoner_name = summoner_name
 
-    matches = match_history_fetcher.fetch(summoner_name)
+    matches = match_history_fetcher.fetch(summoner_name, region)
 
     @matches = matches.map do |match|
       match_summarizer.summarize(match)
@@ -16,6 +16,10 @@ class SearchController < ApplicationController
   private
   def summoner_name
     params[:summoner_name]
+  end
+
+  def region
+    params[:region]
   end
 
   def match_history_fetcher

@@ -20,6 +20,6 @@ class ProGameScraper
   end
 
   def champion_endpoint
-    "#{LolApiConfig::LOL_API_BASE_URL}/api/lol/static-data/#{LolApiConfig::LOL_API_REGION}/v1.2/champion?api_key=#{ENV['LOL_API_KEY']}"
+    "#{LolApiConfig::LOL_API_GLOBAL_BASE_URL}/api/lol/static-data/#{LolApiConfig::LOL_API_REGION}/v1.2/champion?api_key=#{ENV['LOL_API_KEY']}"
   end
 end

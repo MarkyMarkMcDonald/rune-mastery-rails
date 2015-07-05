@@ -2,6 +2,18 @@
 
   <%= label_tag(:summoner_name, 'Summoner Name')  %>
   <%= text_field_tag(:summoner_name, nil) %>
+  <select name="region">
+    <option selected value="na">NA</option>
+    <option value="euw">EUW</option>
+    <option value="kr">KR</option>
+    <option value="eune">EUNE</option>
+    <option value="br">BR</option>
+    <option value="lan">LAN</option>
+    <option value="las">LAS</option>
+    <option value="oce">OCE</option>
+    <option value="ru">RU</option>
+    <option value="tr">TR</option>
+  </select>
   <%= submit_tag 'Search' %>
 
 <% end %>

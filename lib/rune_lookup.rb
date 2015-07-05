@@ -23,7 +23,7 @@ class RuneLookup
 
   private
   def self.all_runes
-    all_runes = JSON.parse(RestClient.get("#{LolApiConfig::LOL_API_BASE_URL}/api/lol/static-data/#{LolApiConfig::LOL_API_REGION}/v1.2/rune?runeListData=colloq,depth&api_key=#{ENV['LOL_API_KEY']}"))
+    all_runes = JSON.parse(RestClient.get("#{LolApiConfig::LOL_API_GLOBAL_BASE_URL}/api/lol/static-data/#{LolApiConfig::LOL_API_REGION}/v1.2/rune?runeListData=colloq,depth&api_key=#{ENV['LOL_API_KEY']}"))
     all_runes['data'].reduce({}) do |runes, (id, rune)|
       runes[id] = Rune.new(id.to_i, rune['name'], rune['rune']['type'])
       runes
