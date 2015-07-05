@@ -1,7 +1,9 @@
 Compare your rune choices to the pros.
 
 <%= form_tag '/search', method: 'get' do %>
-  <%= text_field_tag(:summoner_name, nil, placeholder: 'Summoner Name') %>
+
+  <%= label_tag(:summoner_name, 'Summoner Name')  %>
+  <%= text_field_tag(:summoner_name, nil) %>
 
   <div>
     <%= submit_tag 'Search' %>
