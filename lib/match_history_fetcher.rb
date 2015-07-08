@@ -18,6 +18,6 @@ class MatchHistoryFetcher
       return []
     end
 
-    JSON.parse(match_history_response)['matches']
+    JSON.parse(match_history_response)['matches'].reverse
   end
 end
