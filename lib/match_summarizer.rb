@@ -16,7 +16,7 @@ class MatchSummarizer
       }
     end.reduce(&:merge)
 
-    pro_games = ProGame.where(champion_name: champion_name).order(:updated_at).limit(6)
+    pro_games = ProGame.where(champion_name: champion_name).order(:updated_at).limit(3)
 
     comparisons = pro_games.map do |pro_game|
       contrast = RuneComparator.contrast(pro_runes: pro_game.runes, player_runes: player_runes).map do |rune_id, difference|
