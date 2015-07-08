@@ -4,6 +4,9 @@
   %section.difference
     %h3 Difference
     .quints-summary
+      - if @difference[:seals].empty?
+        .flex-item.empty-state
+          %i.fa.fa-arrows-h.fa-4x
       - @difference[:quints].each do |quint|
         %ul.summary-list
           %li.quints
@@ -12,6 +15,9 @@
             %span
               = quint.name
     .marks-summary
+      - if @difference[:seals].empty?
+        .flex-item.empty-state
+          %i.fa.fa-arrows-h.fa-4x
       - @difference[:marks].each do |mark|
         %ul.summary-list
           %li.marks
@@ -19,9 +25,9 @@
               = mark.count
             %span
               = mark.name
-    .seals-summary.empty-state
+    .seals-summary
       - if @difference[:seals].empty?
-        .flex-item
+        .flex-item.empty-state
           %i.fa.fa-arrows-h.fa-4x
       - @difference[:seals].each do |seal|
         %ul.summary-list
@@ -31,13 +37,16 @@
             %span
               = seal.name
     .glyphs-summary
-    - @difference[:glyphs].each do |glyph|
-      %ul.summary-list
-        %li.glyphs
-          %span
-            = glyph.count
-          %span
-            = glyph.name
+      - if @difference[:seals].empty?
+        .flex-item.empty-state
+          %i.fa.fa-arrows-h.fa-4x
+      - @difference[:glyphs].each do |glyph|
+        %ul.summary-list
+          %li.glyphs
+            %span
+              = glyph.count
+            %span
+              = glyph.name
   %section.user-runes
     %h3 Your stuff
     %ul.simple-list
