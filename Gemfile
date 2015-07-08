@@ -24,18 +24,17 @@ gem 'normalize-rails'
 gem 'neat'
 gem 'bourbon'
 
-gem 'rails_12factor'
-
 gem 'pry', group: :development
 gem 'dotenv', :groups => [:development, :test]
 gem 'rspec-rails', :groups => [:development, :test]
 gem 'webmock', :groups => :test
 
-gem 'seed_dump'
-gem 'flamegraph'
-gem 'rack-mini-profiler'
-gem 'skylight'
+gem 'seed_dump', groups: [:development]
+gem 'flamegraph', groups: [:development]
+gem 'rack-mini-profiler', groups: [:development]
 
+gem 'rails_12factor', groups: [:production]
+gem 'skylight', groups: [:production]
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
