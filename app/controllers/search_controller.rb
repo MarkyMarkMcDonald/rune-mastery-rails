@@ -8,6 +8,8 @@ class SearchController < ApplicationController
 
     matches = match_history_fetcher.fetch(summoner_name, region)
 
+    return if matches.empty?
+
     @matches = matches.map do |match|
       match_summarizer.summarize(match)
     end

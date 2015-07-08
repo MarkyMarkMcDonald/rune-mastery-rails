@@ -1,6 +1,7 @@
 = render 'search/search'
-- if @matches.empty?
-  %div Failed to retrieve matches for #{@summoner_name}
+
+- unless @matches
+  .error Failed to retrieve matches for #{@summoner_name}
 - else
 
   %h1 Summoner #{@summoner_name}
