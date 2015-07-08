@@ -19,7 +19,10 @@
               = mark.count
             %span
               = mark.name
-    .seals-summary
+    .seals-summary.empty-state
+      - if @difference[:seals].empty?
+        .flex-item
+          %i.fa.fa-arrows-h.fa-4x
       - @difference[:seals].each do |seal|
         %ul.summary-list
           %li.seals
@@ -35,47 +38,6 @@
             = glyph.count
           %span
             = glyph.name
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   %section.user-runes
     %h3 Your stuff
     %ul.simple-list
@@ -103,8 +65,6 @@
             = glyph.count
           %span
             = glyph.name
-
-
   %section.pro-runes
     %h3 Their stuff
     %ul.simple-list
