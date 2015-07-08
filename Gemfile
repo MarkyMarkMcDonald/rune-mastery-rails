@@ -34,6 +34,7 @@ gem 'webmock', :groups => :test
 gem 'seed_dump'
 gem 'flamegraph'
 gem 'rack-mini-profiler'
+gem 'skylight'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
