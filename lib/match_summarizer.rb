@@ -3,6 +3,7 @@ require 'successful_games_scraper.rb'
 require 'rune_comparator.rb'
 require 'champion_fetcher.rb'
 require 'rune_lookup.rb'
+require 'json'
 
 class MatchSummarizer
   def summarize(match)
@@ -16,10 +17,10 @@ class MatchSummarizer
       }
     end.reduce(&:merge)
 
-    pro_games = ProGame.where(champion_name: champion_name).order(:updated_at).limit(3)
+    pro_games = JSON.parse($redis.get(champion_name))
 
     comparisons = pro_games.map do |pro_game|
-      contrast = RuneComparator.contrast(pro_runes: pro_game.runes, player_runes: player_runes).map do |rune_id, difference|
+      contrast = RuneComparator.contrast(pro_runes: pro_game['runes'], player_runes: player_runes).map do |rune_id, difference|
         {
             rune: RuneLookup.by_id(rune_id),
             difference: difference
@@ -28,7 +29,7 @@ class MatchSummarizer
 
       {
         player_runes: player_runes,
-        pro_name: pro_game[:player_name],
+        pro_name: pro_game['player_name'],
         contrast: contrast
       }
     end
