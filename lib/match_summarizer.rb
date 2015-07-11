@@ -20,18 +20,14 @@ class MatchSummarizer
     pro_games = JSON.parse($redis.get(champion_name))
 
     comparisons = pro_games.map do |pro_game|
-      contrast = RuneComparator.contrast(pro_runes: pro_game['runes'], player_runes: player_runes).map do |rune_id, difference|
+      rune_choices = RuneComparator.contrast(pro_runes: pro_game['runes'], player_runes: player_runes).map do |rune_id, difference|
         {
             rune: RuneLookup.by_id(rune_id),
             difference: difference
         }
       end
 
-      {
-        player_runes: player_runes,
-        pro_name: pro_game['player_name'],
-        contrast: contrast
-      }
+      Contrast.new(pro_game['player_name'], rune_choices)
     end
 
     {

@@ -3,7 +3,6 @@
 - unless @matches
   .error Failed to retrieve matches for #{@summoner_name}
 - else
-
   %h1 Summoner #{@summoner_name}
   %div
     - @matches.each_with_index do |match, match_index|
@@ -11,38 +10,10 @@
         %h2 Match #{match_index + 1} - #{match[:champion_name]}
         - match[:comparisons].each do |comparison|
           %div.match
-            %h3 #{comparison[:pro_name]}'s changes
-            %section.difference
-              .quints-summary
-                - comparison[:contrast].select do |contrast| contrast[:rune].type == 'black' end.sort_by do |contrast| contrast[:difference] end.reverse.each do |quint|
-                  %ul.summary-list
-                    %li.quints
-                      %span
-                        = quint[:difference] > 0 ? '+' + quint[:difference].to_s : quint[:difference]
-                      %span
-                        = quint[:rune].name.gsub(/Greater.*of/, '')
-              .marks-summary
-                - comparison[:contrast].select do |contrast| contrast[:rune].type == 'red' end.sort_by do |contrast| contrast[:difference] end.reverse.each do |mark|
-                  %ul.summary-list
-                    %li.marks
-                      %span
-                        = mark[:difference] > 0 ? '+' + mark[:difference].to_s : mark[:difference]
-                      %span
-                        = mark[:rune].name.gsub(/Greater.*of/, '')
-              .seals-summary
-                - comparison[:contrast].select do |contrast| contrast[:rune].type == 'blue' end.sort_by do |contrast| contrast[:difference] end.reverse.each do |seal|
-                  %ul.summary-list
-                    %li.seals
-                      %span
-                        = seal[:difference] > 0 ? '+' + seal[:difference].to_s : seal[:difference]
-                      %span
-                        = seal[:rune].name.gsub(/Greater.*of/, '')
-              .glyphs-summary
-                - comparison[:contrast].select do |contrast| contrast[:rune].type == 'yello' end.sort_by do |contrast| contrast[:difference] end.reverse.each do |glyph|
-                  %ul.summary-list
-                    %li.glyphs
-                      %span
-                        = glyph[:difference] > 0 ? '+' + glyph[:difference].to_s : glyph[:difference]
-                      %span
-                        = glyph[:rune].name.gsub(/Greater.*of/, '')
+            %h3 #{comparison.pro_name}'s changes
 
+            %section.difference
+              = render partial: 'summary', locals: {rune_choices: comparison.quints, type: 'quints'}
+              = render partial: 'summary', locals: {rune_choices: comparison.marks, type: 'marks'}
+              = render partial: 'summary', locals: {rune_choices: comparison.glyphs, type: 'glyphs'}
+              = render partial: 'summary', locals: {rune_choices: comparison.seals, type: 'seals'}

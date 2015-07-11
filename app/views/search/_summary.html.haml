@@ -1,0 +1,11 @@
+%div{class: "#{type}-summary"}
+  - if rune_choices.empty?
+    .flex-container
+      .flex-item.empty-state =
+  - rune_choices.each do |choice|
+    %ul.summary-list
+      %li{class: type}
+        %span
+          = choice[:difference] > 0 ? '+' + choice[:difference].to_s : choice[:difference]
+        %span
+          = choice[:rune].name.gsub(/Greater.*of/, '')
