@@ -1,5 +1,6 @@
 applications:
   - name: rune-mastery
-    instances: 30
+    instances: 9
     disk_quota: 512M
     memory: 512M
+    buildpack: https://github.com/cloudfoundry/ruby-buildpack.git

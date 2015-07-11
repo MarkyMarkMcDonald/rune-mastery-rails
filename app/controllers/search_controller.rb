@@ -11,8 +11,12 @@ class SearchController < ApplicationController
     return if matches.empty?
 
     @matches = matches.map do |match|
-      match_summarizer.summarize(match)
-    end
+      begin
+        match_summarizer.summarize(match)
+      rescue
+        nil
+      end
+    end.compact
   end
 
   private
