@@ -1,10 +1,7 @@
 # rune-mastery
-Comparing runes and masteries of your recent games vs pros
+Comparing runes and masteries of your recent games vs pros.
 
-```bash
-bundle install
-ruby rune_comparison.rb
-```
+Simple rails app, only system requirement is redis.
 
 - [X] Display information for last 10 matches instead of just latest
 - [X] Compare with top 5 pros instead of just top
