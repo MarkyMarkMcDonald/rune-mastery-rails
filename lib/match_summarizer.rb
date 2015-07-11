@@ -17,7 +17,7 @@ class MatchSummarizer
       }
     end.reduce(&:merge)
 
-    pro_games = JSON.parse($redis.get(champion_name))
+    pro_games = JSON.parse($redis.get(champion_name))[0..2]
 
     comparisons = pro_games.map do |pro_game|
       rune_choices = RuneComparator.contrast(pro_runes: pro_game['runes'], player_runes: player_runes).map do |rune_id, difference|
