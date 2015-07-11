@@ -1,3 +1,5 @@
 applications:
   - name: rune-mastery
-    instances: 5
+    instances: 30
+    disk_quota: 512M
+    memory: 512M
